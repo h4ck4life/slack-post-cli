@@ -23,7 +23,16 @@ public class SlackTest {
     }
 
     @Test
-    void testPostMessageToSlackChannelWithAttachment() {
+    void testPostMessageToSlackChannelWithAttachment_relativePath() {
+        String filePath = "src/test/resources/demo.txt";
+        String fileTitle = "demo txt file";
+        String fileComment = "this is a demo file upload.";
+        boolean postStatus = postSlack.sendWithFile(channelName, fileTitle, fileComment, filePath);
+        assertTrue(postStatus);
+    }
+
+    @Test
+    void testPostMessageToSlackChannelWithAttachment_absolutePath() {
         String filePath = "src/test/resources/demo.txt";
         String fileTitle = "demo txt file";
         String fileComment = "this is a demo file upload.";

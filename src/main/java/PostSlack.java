@@ -13,10 +13,10 @@ public class PostSlack {
 
     /**
      * Post a text message to slack channel
-     * @param channelName
-     * @param userName
-     * @param postMessage
-     * @return
+     * @param channelName Slack channel name
+     * @param userName Username to use to post with
+     * @param postMessage Message to post
+     * @return boolean true or false
      */
     public boolean send(String channelName, String userName, String postMessage) {
         try {
@@ -38,11 +38,11 @@ public class PostSlack {
 
     /**
      * Post a text message to slack with file upload
-     * @param channelName
-     * @param fileTitle
-     * @param fileComment
-     * @param filePath
-     * @return
+     * @param channelName Slack channel name
+     * @param fileTitle Title of the file
+     * @param fileComment Comment of the file
+     * @param filePath File path
+     * @return boolean true or false
      */
     public boolean sendWithFile(String channelName, String fileTitle, String fileComment, String filePath) {
         try {
