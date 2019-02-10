@@ -11,6 +11,13 @@ public class PostSlack {
 
     Slack slack = Slack.getInstance();
 
+    /**
+     * Post a text message to slack channel
+     * @param channelName
+     * @param userName
+     * @param postMessage
+     * @return
+     */
     public boolean send(String channelName, String userName, String postMessage) {
         try {
             String url = System.getenv("SLACK_WEBHOOK_URL");
@@ -29,7 +36,15 @@ public class PostSlack {
         }
     }
 
-    public boolean send(String channelName, String fileTitle, String fileComment, String filePath) {
+    /**
+     * Post a text message to slack with file upload
+     * @param channelName
+     * @param fileTitle
+     * @param fileComment
+     * @param filePath
+     * @return
+     */
+    public boolean sendWithFile(String channelName, String fileTitle, String fileComment, String filePath) {
         try {
             File file = new File(filePath);
             String token = System.getenv("SLACK_TOKEN");

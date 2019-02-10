@@ -27,7 +27,7 @@ public class SlackTest {
         String filePath = "src/test/resources/demo.txt";
         String fileTitle = "demo txt file";
         String fileComment = "this is a demo file upload.";
-        boolean postStatus = postSlack.send(channelName, fileTitle, fileComment, filePath);
+        boolean postStatus = postSlack.sendWithFile(channelName, fileTitle, fileComment, filePath);
         assertTrue(postStatus);
     }
 }
