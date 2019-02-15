@@ -28,7 +28,7 @@ public class SlackTest {
     @AfterEach
     void tearDown() {
         //Mockito.reset(postSlack);
-        postSlack = null;
+        //postSlack = null;
     }
 
     @BeforeEach
