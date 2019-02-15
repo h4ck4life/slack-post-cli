@@ -1,6 +1,5 @@
+import com.github.seratch.jslack.Slack;
 import org.apache.commons.cli.*;
-
-import java.sql.SQLOutput;
 
 public class MainSlack {
 
@@ -22,13 +21,13 @@ public class MainSlack {
 
             // Post only message
             if (cmd.hasOption("m") && cmd.hasOption("c") && cmd.hasOption("u")) {
-                PostSlack postSlack = new PostSlack();
+                PostSlack postSlack = new PostSlack(Slack.getInstance());
                 validateSendMessage(postSlack.send(cmd.getOptionValue("c"), "", cmd.getOptionValue("m")));
             }
 
             // Post message with file upload
             if (cmd.hasOption("m") && cmd.hasOption("c") && cmd.hasOption("u") && cmd.hasOption("f")) {
-                PostSlack postSlack = new PostSlack();
+                PostSlack postSlack = new PostSlack(Slack.getInstance());
                 validateSendMessage(postSlack.sendWithFile(cmd.getOptionValue("c"), "", "", cmd.getOptionValue("f")));
             }
 

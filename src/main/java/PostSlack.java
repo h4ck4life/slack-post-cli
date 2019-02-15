@@ -9,7 +9,11 @@ import java.util.Arrays;
 
 public class PostSlack {
 
-    Slack slack = Slack.getInstance();
+    Slack slack;
+
+    public PostSlack(Slack slack) {
+        this.slack = slack;
+    }
 
     /**
      * Post a text message to slack channel
@@ -28,7 +32,7 @@ public class PostSlack {
                     .build();
 
             WebhookResponse response = slack.send(url, payload);
-            return response.getCode().equals(200) ? true : false;
+            return null != response && response.getCode().equals(200);
 
         } catch (Exception e) {
             e.printStackTrace();
