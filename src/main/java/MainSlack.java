@@ -19,16 +19,16 @@ public class MainSlack {
             CommandLineParser parser = new DefaultParser();
             CommandLine cmd = parser.parse(options, args);
 
-            // Post only message
-            if (cmd.hasOption("m") && cmd.hasOption("c") && cmd.hasOption("u")) {
-                PostSlack postSlack = new PostSlack(Slack.getInstance());
-                validateSendMessage(postSlack.send(cmd.getOptionValue("c"), "", cmd.getOptionValue("m")));
-            }
-
             // Post message with file upload
-            if (cmd.hasOption("m") && cmd.hasOption("c") && cmd.hasOption("u") && cmd.hasOption("f")) {
+            if (cmd.hasOption("m") && cmd.hasOption("c") && cmd.hasOption("f")) {
                 PostSlack postSlack = new PostSlack(Slack.getInstance());
                 validateSendMessage(postSlack.sendWithFile(cmd.getOptionValue("c"), "", "", cmd.getOptionValue("f")));
+            }
+
+            // Post only message
+            if (cmd.hasOption("m") && cmd.hasOption("c")) {
+                PostSlack postSlack = new PostSlack(Slack.getInstance());
+                validateSendMessage(postSlack.send(cmd.getOptionValue("c"), "", cmd.getOptionValue("m")));
             }
 
         } catch (ParseException e) {
