@@ -18,5 +18,5 @@ java -jar slack-cli-0.0.1.jar --channel dev --message "test message"
 ```
 * Text message with attachment:
 ```sh
-java -jar slack-cli-0.0.1.jar --channel dev --message "test message" -f ./demo.txt
+java -jar slack-cli-0.0.1.jar --channel dev --message "test message" --file ./demo.txt
 ```
