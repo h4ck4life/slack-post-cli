@@ -19,7 +19,7 @@ public class SlackTest {
 
     PostSlack postSlack;
     String channelName = "dev";
-    String postMessage = "test message";
+    String postMessage = "test message from space";
     String userName = "testBot";
     String filePath = "src/test/resources/demo.txt";
     String fileTitle = "demo txt file";
