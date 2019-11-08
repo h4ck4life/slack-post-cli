@@ -7,11 +7,11 @@ import com.github.seratch.jslack.api.webhook.WebhookResponse;
 import java.io.File;
 import java.util.Arrays;
 
-public class PostSlack {
+class PostSlack {
 
-    Slack slack;
+    private Slack slack;
 
-    public PostSlack(Slack slack) {
+    PostSlack(Slack slack) {
         this.slack = slack;
     }
 
@@ -22,7 +22,7 @@ public class PostSlack {
      * @param postMessage Message to post
      * @return boolean true or false
      */
-    public boolean send(String channelName, String userName, String postMessage) {
+    boolean send(String channelName, String userName, String postMessage) {
         try {
             String url = System.getenv("SLACK_WEBHOOK_URL");
             Payload payload = Payload.builder()

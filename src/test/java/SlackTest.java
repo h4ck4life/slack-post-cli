@@ -15,15 +15,15 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
-public class SlackTest {
+class SlackTest {
 
-    PostSlack postSlack;
-    String channelName = "dev";
-    String postMessage = "test message";
-    String userName = "testBot";
-    String filePath = "src/test/resources/demo.txt";
-    String fileTitle = "demo txt file";
-    String fileComment = "this is a demo file upload.";
+    private PostSlack postSlack;
+    private String channelName = "dev";
+    private String postMessage = "test message";
+    private String userName = "testBot";
+    private String filePath = "src/test/resources/demo.txt";
+    private String fileTitle = "demo txt file";
+    private String fileComment = "this is a demo file upload.";
 
     @AfterEach
     void tearDown() {
@@ -65,6 +65,7 @@ public class SlackTest {
 
     @Test
     void postMessageToSlackChannelTest() {
+        System.out.println("Hello: " + System.getenv("name"));
         boolean postStatus = postSlack.send(channelName, userName, postMessage);
         assertTrue(postStatus);
     }
